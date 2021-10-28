@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Indexer/etc/indexer.xsd">
+    <indexer id="indexer_custom" view_id="indexer_custom_view" class="TadeuRodrigues\IndexerCustom\Model\Indexer\IndexerCustom">
+        <title>Indexer Custom</title>
+        <description>Estudos para criar indice customizado</description>
+
+        <fieldset name="customer" source="Magento\Customer\Model\Indexer\Source"
+                  provider="Magento\Customer\Model\Indexer\AttributeProvider">
+            <field name="name" xsi:type="searchable" dataType="text" handler="CustomerNameHandler"/>
+            <field name="email" xsi:type="searchable" dataType="varchar"/>
+            <field name="group_id" xsi:type="filterable" dataType="int"/>
+            <field name="created_at" xsi:type="filterable" dataType="timestamp"/>
+            <field name="website_id" xsi:type="filterable" dataType="int"/>
+            <field name="confirmation" xsi:type="filterable" dataType="varchar"/>
+            <field name="created_in" xsi:type="filterable" dataType="text"/>
+            <field name="dob" xsi:type="filterable" dataType="date"/>
+            <field name="gender" xsi:type="filterable" dataType="int"/>
+            <field name="taxvat" xsi:type="searchable" dataType="varchar"/>
+            <field name="lock_expires" xsi:type="filterable" dataType="timestamp" />
+        </fieldset>
+
+        <structure class="TadeuRodrigues\IndexerCustom\Model\Indexer\IndexStructure"/>
+        <saveHandler class="TadeuRodrigues\IndexerCustom\Model\Indexer\SaveHandler"/>
+    </indexer>
+</config>
