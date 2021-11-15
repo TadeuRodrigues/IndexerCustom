@@ -11,8 +11,15 @@ use TadeuRodrigues\IndexerCustom\Model\Indexer\IndexerCustom;
 
 class InvalidateIndexCustom extends Command
 {
+    /**
+     * @var IndexerRegistry
+     */
     protected IndexerRegistry $indexerRegistry;
 
+    /**
+     * @param IndexerRegistry $indexerRegistry
+     * @param string|null $name
+     */
     public function __construct(IndexerRegistry $indexerRegistry, string $name = null)
     {
         $this->indexerRegistry = $indexerRegistry;
